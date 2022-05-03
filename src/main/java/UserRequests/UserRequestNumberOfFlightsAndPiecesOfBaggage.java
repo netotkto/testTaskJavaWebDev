@@ -10,13 +10,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRequestNumberOfFlightsAndPiecesOfBaggageByIATACode {
+public class UserRequestNumberOfFlightsAndPiecesOfBaggage{
     private final String IATACode;
     private final String userInputDate; //dd-mm-yyyy
     private final List<FlightEntity> flightEntitiesObjectList;
     private final List<CargoEntity> cargoEntitiesObjectList;
 
-    public UserRequestNumberOfFlightsAndPiecesOfBaggageByIATACode(String IATACode, String userInputDate) throws IOException, ParseException {
+    public UserRequestNumberOfFlightsAndPiecesOfBaggage(String IATACode, String userInputDate) throws IOException, ParseException {
         ParseJSONFile flightEntities = new ParseJSONFile("src/main/resources/flightEntity.json");
         ParseJSONFile cargoEntities = new ParseJSONFile("src/main/resources/cargoEntity.json");
         this.flightEntitiesObjectList = flightEntities.getArrayOfFlightsObject();

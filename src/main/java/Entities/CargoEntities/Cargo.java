@@ -1,4 +1,4 @@
-package Entities;
+package Entities.CargoEntities;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,6 +32,7 @@ public class Cargo {
         return pieces;
     }
 
+    @Override
     public String toString(){
         return "Id: " + this.id + ", weight: " + this.weight + ", weightUnit: " + this.weightUnit + ", pieces: " + this.pieces;
     }

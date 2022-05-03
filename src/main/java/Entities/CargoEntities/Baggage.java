@@ -1,4 +1,4 @@
-package Entities;
+package Entities.CargoEntities;
 
 import org.json.simple.JSONObject;
 

@@ -1,5 +1,7 @@
 package Entities;
 
+import Entities.CargoEntities.Baggage;
+import Entities.CargoEntities.Cargo;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -10,12 +12,12 @@ import java.util.List;
 
 public class CargoEntity {
     private final long flightId;
-    private final JSONArray baggages;
+    private final JSONArray baggage;
     private final JSONArray cargoes;
 
     public CargoEntity(JSONObject obj) throws IOException, ParseException {
         this.flightId = (long) obj.get("flightId");
-        this.baggages = (JSONArray)obj.get("baggage");
+        this.baggage = (JSONArray)obj.get("baggage");
         this.cargoes = (JSONArray)obj.get("cargo");
     }
 
@@ -23,17 +25,17 @@ public class CargoEntity {
         return flightId;
     }
 
-    public List<Baggage> getBaggages() {
-        List<Baggage> baggagesArray = new ArrayList<Baggage>();
-        for (Object baggageJSNONObj: this.baggages){
+    public List<Baggage> getbaggage() {
+        List<Baggage> baggageArray = new ArrayList<>();
+        for (Object baggageJSNONObj: this.baggage){
             Baggage baggage = new Baggage((JSONObject) baggageJSNONObj);
-            baggagesArray.add(baggage);
+            baggageArray.add(baggage);
         }
-        return baggagesArray;
+        return baggageArray;
     }
 
     public List<Cargo> getCargoes(){
-        List<Cargo> cargoesArray = new ArrayList<Cargo>();
+        List<Cargo> cargoesArray = new ArrayList<>();
         for (Object cargoJSNONObj: this.cargoes){
             Cargo cargo = new Cargo((JSONObject) cargoJSNONObj);
             cargoesArray.add(cargo);

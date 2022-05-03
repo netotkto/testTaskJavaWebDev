@@ -48,7 +48,7 @@
       },
       {
         "id": 2,
-        "weight": 13,
+        "weight": 13  ,
         "weightUnit": "lb",
         "pieces": 270
       }
