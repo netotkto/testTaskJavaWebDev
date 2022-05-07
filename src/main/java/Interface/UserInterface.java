@@ -11,12 +11,12 @@ public class UserInterface {
                 case 1:
                     long flightNumber = ConsoleInput.requestFlightNumber();
                     String date = ConsoleInput.requestDate();
-                    ConsoleOutput.getInformationForRequestedFlightNumber(flightNumber, date);
+                    ConsoleOutput.showInfoForRequestedFlightNumber(flightNumber, date);
                     break;
                 case 2:
                     String IATACode = ConsoleInput.requestIATACode();
                     date = ConsoleInput.requestDate();
-                    ConsoleOutput.getInformationForRequestedIATACode(IATACode, date);
+                    ConsoleOutput.showInfoForRequestedIATACode(IATACode, date);
                     break;
                 case 3:
                     ConsoleOutput.exitApp();

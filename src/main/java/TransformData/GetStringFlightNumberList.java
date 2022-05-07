@@ -9,7 +9,8 @@ public class GetStringFlightNumberList {
             return response;
         }
         else {
-            return flightNumberList.toString().replace("[", "").replace("]", "");
+            response = flightNumberList.toString().replace("[", "").replace("]", "");
+            return response;
         }
     }
 }

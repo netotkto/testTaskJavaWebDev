@@ -3,24 +3,21 @@ package UserRequests;
 import Entities.CargoEntity;
 import Entities.FlightEntity;
 import Parser.ParseJSONFile;
-import TransformData.TransformAndComparisonDates;
+import TransformData.DatesManipulation;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRequestNumberOfFlightsAndPiecesOfBaggage{
+public class RequestFlightsInfoByIATA {
     private final String IATACode;
     private final String userInputDate; //dd-mm-yyyy
     private final List<FlightEntity> flightEntitiesObjectList;
-    private final List<CargoEntity> cargoEntitiesObjectList;
 
-    public UserRequestNumberOfFlightsAndPiecesOfBaggage(String IATACode, String userInputDate) throws IOException, ParseException {
+    public RequestFlightsInfoByIATA(String IATACode, String userInputDate) throws IOException, ParseException {
         ParseJSONFile flightEntities = new ParseJSONFile("src/main/resources/flightEntity.json");
-        ParseJSONFile cargoEntities = new ParseJSONFile("src/main/resources/cargoEntity.json");
-        this.flightEntitiesObjectList = flightEntities.getArrayOfFlightsObject();
-        this.cargoEntitiesObjectList = cargoEntities.getArrayOfCargoesObject();
+        this.flightEntitiesObjectList = flightEntities.getListOfFlightsObject();
         this.IATACode = IATACode;
         this.userInputDate = userInputDate;
     }
@@ -28,7 +25,7 @@ public class UserRequestNumberOfFlightsAndPiecesOfBaggage{
     public List<FlightEntity> getFlightsDepartingFromThisAirportByIATA() throws java.text.ParseException { //get list of Entities.FlightEntity objects departing from airport
         List<FlightEntity> flightEntities = new ArrayList<>();
         for(FlightEntity flightEntity: this.flightEntitiesObjectList){
-            if(flightEntity.getDepartureAirportIATACode().equals(this.IATACode) && TransformAndComparisonDates.compareTwoDates(this.userInputDate, flightEntity.getDepartureDate())){
+            if(flightEntity.getDepartureAirportIATACode().equals(this.IATACode) && DatesManipulation.compareTwoDates(this.userInputDate, flightEntity.getDepartureDate())){
                 flightEntities.add(flightEntity);
             }
         }
@@ -37,7 +34,7 @@ public class UserRequestNumberOfFlightsAndPiecesOfBaggage{
     public List<FlightEntity> getFlightsArrivingToThisAirportByIATA() throws java.text.ParseException { //get list of Entities.FlightEntity objects arriving to airport
         List<FlightEntity> flightEntities = new ArrayList<>();
         for(FlightEntity flightEntity: this.flightEntitiesObjectList){
-            if(flightEntity.getArrivalAirportIATACode().equals(this.IATACode) && TransformAndComparisonDates.compareTwoDates(this.userInputDate, flightEntity.getDepartureDate())){
+            if(flightEntity.getArrivalAirportIATACode().equals(this.IATACode) && DatesManipulation.compareTwoDates(this.userInputDate, flightEntity.getDepartureDate())){
                 flightEntities.add(flightEntity);
             }
         }

@@ -14,14 +14,14 @@ public class ConsoleOutput {
         System.out.println("Enter 3 to exit the application");
     }
 
-    public static void getInformationForRequestedFlightNumber(long flightNumber, String userInputDate) throws IOException, ParseException, java.text.ParseException {
+    public static void showInfoForRequestedFlightNumber(long flightNumber, String userInputDate) throws IOException, ParseException, java.text.ParseException {
         List<String> responseFromAppByFlightNumberList = ApplicationResponse.getResponseFromApplicationWeightInfo(flightNumber, userInputDate);
         for(String responseString: responseFromAppByFlightNumberList){
             System.out.println(responseString);
         }
     }
 
-    public static void getInformationForRequestedIATACode(String IATACode, String userInputDate) throws IOException, ParseException, java.text.ParseException {
+    public static void showInfoForRequestedIATACode(String IATACode, String userInputDate) throws IOException, ParseException, java.text.ParseException {
         List<String> responseFromApplicationByIATACode = ApplicationResponse.getResponseFromApplicationNumberFlightsAndBaggageInfo(IATACode, userInputDate);
         for (String responseString: responseFromApplicationByIATACode){
             System.out.println(responseString);

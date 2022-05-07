@@ -26,7 +26,7 @@ public class ParseJSONFile {
         return entities;
     }
 
-    public List<FlightEntity> getArrayOfFlightsObject(){
+    public List<FlightEntity> getListOfFlightsObject(){
         JSONArray flightEntitiesJSONArray = this.getEntities();
         List<FlightEntity> flightEntitiesObjectArray = new ArrayList<>();
         for (Object flightEntity: flightEntitiesJSONArray){
@@ -34,7 +34,7 @@ public class ParseJSONFile {
         }
         return flightEntitiesObjectArray;
     }
-    public List<CargoEntity> getArrayOfCargoesObject() throws IOException, ParseException {
+    public List<CargoEntity> getListOfCargoesObject() throws IOException, ParseException {
 
         JSONArray cargoEntitiesJSONArray = this.getEntities();
         List<CargoEntity>cargoEntitiesObjectArray = new ArrayList<>();

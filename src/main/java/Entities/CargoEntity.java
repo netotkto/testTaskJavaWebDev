@@ -25,7 +25,7 @@ public class CargoEntity {
         return flightId;
     }
 
-    public List<Baggage> getbaggage() {
+    public List<Baggage> getBaggage() {
         List<Baggage> baggageArray = new ArrayList<>();
         for (Object baggageJSNONObj: this.baggage){
             Baggage baggage = new Baggage((JSONObject) baggageJSNONObj);

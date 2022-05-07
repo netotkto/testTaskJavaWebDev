@@ -1,5 +1,7 @@
 package Interface;
 
+import TransformData.DatesManipulation;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -30,7 +32,7 @@ public class ConsoleInput {
     public static String requestDate(){
         System.out.print("Date (Format: dd-mm-yyyy): ");
         String date = scanner.next();
-        if(VerifyUserInputDate.verifyUserInputDate(date)){
+        if(DatesManipulation.verifyUserInputDate(date)){
             return date;
         }
         else {
